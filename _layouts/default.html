@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{ page.title | default: site.title }}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ page.title | default: site.title }}</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- MathJax configuration -->
-  <script type="text/javascript">
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-      }
-    };
-  </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Load MathJax from CDN -->
-  <script type="text/javascript" id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  
-  <!--- CSS for table borders --->
-  <style>
-    table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 6px;
-    }
-  </style>
+    <!-- Include theme CSS -->
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}" />
 
-</head>
-<body>
-  {% include components/sidebar.html %}
-  <main>
-    {{ content }}
-  </main>
-</body>
+    <!-- MathJax -->
+    <script type="text/javascript">
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  </head>
+  <body>
+    {% include components/sidebar.html %}
+    <main>
+      {{ content }}
+    </main>
+    <!-- Include theme JS -->
+    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+  </body>
 </html>
