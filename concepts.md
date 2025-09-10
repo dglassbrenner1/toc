@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: custom
 title: Concepts
 nav_order: 3
 has_toc: true

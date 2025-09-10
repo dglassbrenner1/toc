@@ -1,7 +1,21 @@
-title: Example Docs Site
-description: Minimal Just the Docs TOC sidebar example
+title: "Example Docs Site"
+description: "Minimal Just the Docs TOC sidebar example"
+
 remote_theme: pmarsceill/just-the-docs
 markdown: kramdown
 
-nav_enabled: true
+# enable site-wide nav and per-page TOC
+nav: true
 has_toc: true
+
+# use GitHub-Flavored Markdown (optional but recommended)
+kramdown:
+  input: GFM
+
+# automatically apply your custom layout to all Markdown pages
+defaults:
+  - scope:
+      path: ""          # all files
+      type: "pages"     # or omit type if you want posts too
+    values:
+      layout: custom
