@@ -1,0 +1,7 @@
+title: Example Docs Site
+description: Minimal Just the Docs TOC sidebar example
+remote_theme: pmarsceill/just-the-docs
+markdown: kramdown
+
+nav_enabled: true
+has_toc: true
