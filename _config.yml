@@ -11,6 +11,7 @@ has_toc: true
 # use GitHub-Flavored Markdown (optional but recommended)
 kramdown:
   input: GFM
+  math_engine: mathjax
 
 # automatically apply your custom layout to all Markdown pages
 defaults:
