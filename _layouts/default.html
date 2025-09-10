@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  {% include head.html %}
+
   <head>
-    <meta charset="UTF-8" />
-    <title>{{ page.title | default: site.title }}</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Include theme CSS -->
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}" />
-
-    <!-- MathJax -->
+    <!-- Insert MathJax config and loading scripts -->
     <script type="text/javascript">
       window.MathJax = {
         tex: {
@@ -22,14 +17,36 @@
         }
       };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
   </head>
+
   <body>
+    {% include icons/icons.html %}
     {% include components/sidebar.html %}
-    <main>
+    {% include components/header.html %}
+    {% include components/breadcrumbs.html %}
+
+    {% if site.heading_anchors != false %}
+      {% include vendor/anchor_headings.html html=content %}
+    {% else %}
       {{ content }}
-    </main>
-    <!-- Include theme JS -->
-    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+    {% endif %}
+
+    {% if page.has_children == true and page.has_toc != false %}
+      {% include components/children_nav.html %}
+    {% endif %}
+
+    {% include components/footer.html %}
+
+    {% if site.search_enabled != false %}
+      {% include components/search_footer.html %}
+    {% endif %}
+
+    {% if site.mermaid %}
+      {% include components/mermaid.html %}
+    {% endif %}
   </body>
+
 </html>
